@@ -7,7 +7,6 @@ class TestPure extends React.Component {
 
   render () {
     if (this.props.data.error) {
-      console.log(this.props.data.error);
       return (<Text style={{marginTop: 64}}>An unexpected error occurred</Text>)
     }
 
@@ -15,6 +14,7 @@ class TestPure extends React.Component {
       return (<Text style={{marginTop: 64}}>Loading...</Text>)
     }
 
+    console.log(this.props.data.user);
     return (
       <View>
         <Text>LOADED YOHOOO!</Text>
