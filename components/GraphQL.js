@@ -1,9 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { graphql } from 'react-apollo';
+import { BASIC_KEY } from './Routing';
+import { Actions } from 'react-native-router-flux';
 import gql from 'graphql-tag';
 
-class TestPure extends React.Component {
+class GraphQLPure extends React.Component {
 
   render () {
     if (this.props.data.error) {
@@ -17,6 +19,7 @@ class TestPure extends React.Component {
     console.log(this.props.data.user);
     return (
       <View>
+        <Text onPress={() => Actions[BASIC_KEY]()}>got to basic component</Text>
         <Text>LOADED YOHOOO!</Text>
         <Text>{this.props.data.user.firstName}</Text>
       </View>
@@ -34,6 +37,6 @@ const TestQuery = gql`
   }
 `;
 
-export const Test = graphql(
+export const GraphQL = graphql(
   TestQuery,
-)(TestPure);
+)(GraphQLPure);
